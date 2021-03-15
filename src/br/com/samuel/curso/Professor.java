@@ -1,4 +1,4 @@
-package Curso;
+package br.com.samuel.curso;
 
 public class Professor {
 

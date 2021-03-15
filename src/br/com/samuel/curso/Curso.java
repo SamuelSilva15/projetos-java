@@ -1,4 +1,4 @@
-package Curso;
+package br.com.samuel.curso;
 
 public class Curso {
 
@@ -12,6 +12,10 @@ public class Curso {
 
     public Curso(String nome) {
         this.nome = nome;
+    }
+
+    public Curso() {
+
     }
 
     public String getNome() {
@@ -45,7 +49,12 @@ public class Curso {
         this.alunos[ultimoAlunoAdicionado++] = aluno;
     }
 
-    public void procurarAluno (Aluno aluno) {
-        
+    public Aluno procurarAluno (int matricula) {
+        for(int i = 0; i < alunos.length; i++) {
+            if (matricula == alunos[i].getMatricula()) {
+                return alunos[i];
+            }
+        }
+        return null;
     }
 }
