@@ -29,11 +29,11 @@ public class TesteContaBancaria {
         System.out.println("1 - Saldo; 2 - Saque; 3 - Depósito");
         int vontade  = scan.nextInt();
         if(vontade == 1){
-            banco.mostraSaldo();
+            System.out.println(cliente.getContaBancaria().getSaldo());
         }
         else if (vontade == 2) {
             System.out.println("Insira quanto deseja sacar: ");
-            cliente.getContaBancaria().sacar(scan.nextDouble());
+            System.out.println(cliente.getContaBancaria().sacar(scan.nextDouble()));
 
         }
         else if (vontade == 3){

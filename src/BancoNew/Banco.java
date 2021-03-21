@@ -6,12 +6,6 @@ public class Banco {
     int ultimoAlunoAdicionado = 0;
     Cliente clientes [] = new Cliente[5];
     int NUMERO_MAXIMO_DE_CLIENTES = 5;
-    ContaBancaria continha = new ContaBancaria(123);
-
-
-    public double mostraSaldo (){
-        return continha.getSaldo();
-    }
 
     public void addcliente (Cliente cliente){
         if (this.clientes == null) {
