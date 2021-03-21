@@ -8,37 +8,15 @@ public class TesteCurso {
         Scanner scan = new Scanner(System.in);
         Curso cursinho = criaCurso();
 
-        System.out.println("Qual o nome do aluno?");
-        String nomealuno = scan.next();
         System.out.println("Qual o número da matricula?");
-        int matricula = scan.nextInt();
-        cursinho.procurarAluno(matricula);
-        Aluno aluninho = new Aluno(nomealuno, matricula);
+        Aluno aluninho = cursinho.procurarAluno(scan.nextInt());
 
-        if (cursinho.procurarAluno(matricula) != null)
-        {
-            System.out.println("Qual a nota do primeiro semestre: ");
-            int notaprimeiro = scan.nextInt();
-            System.out.println("Qual a nota do primeiro semestre: ");
-            int notasegundo = scan.nextInt();
-            System.out.println("Qual a nota do primeiro semestre: ");
-            int notaterceiro = scan.nextInt();
-            System.out.println("Qual a nota do primeiro semestre: ");
-            int notaquarto = scan.nextInt();
-
-            aluninho.setNotaPrimeiroSemestre(notaprimeiro);
-            aluninho.setNotaSegundoSemestre(notasegundo);
-            aluninho.setNotaTerceiroSemestre(notaterceiro);
-            aluninho.setNotaQuartoSemestre(notaquarto);
-
-            aluninho.getMedia();
-
-            if(aluninho.getMedia() < 7){
-                System.out.println("Reprovado");
+        if (aluninho != null) {
+            for (int i = 1; i <= 4; i++) {
+                System.out.println("Qual a nota do " + i + "º semestre: ");
+                aluninho.addNota(scan.nextInt());
             }
-            else if (aluninho.getMedia() > 7){
-                System.out.println("Aprovado");
-            }
+            System.out.println(aluninho.getAprovacao());
         }
     }
 

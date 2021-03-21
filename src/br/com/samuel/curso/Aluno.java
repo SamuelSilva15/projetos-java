@@ -2,22 +2,40 @@ package br.com.samuel.curso;
 
 public class Aluno {
 
+    private static int NUMERO_MAXIMO_DE_NOTAS = 4;
+
     private String nomeAluno;
     private int matricula;
-    private int notaPrimeiroSemestre;
-    private int notaSegundoSemestre;
-    private int notaTerceiroSemestre;
-    private int notaQuartoSemestre;
+    private int notas[] = new int[4];
+    private int ultimaNotaAdicionada = 0;
 
     public Aluno(String nomeAluno, int matricula) {
         this.nomeAluno = nomeAluno;
         this.matricula = matricula;
     }
 
+    public void addNota(int nota) {
+        if (this.notas == null) {
+            this.notas = new int[NUMERO_MAXIMO_DE_NOTAS];
+        }
+        this.notas[ultimaNotaAdicionada++] = nota;
+    }
+
 
     public int getMedia() {
-        int soma = (this.notaPrimeiroSemestre + this.notaSegundoSemestre + this.notaTerceiroSemestre + this.notaQuartoSemestre);
+        int soma = 0;
+        for (int i = 0; i < this.notas.length; i++) {
+            soma = soma + this.notas[i];
+        }
         return soma / 4;
+    }
+
+    public String getAprovacao(){
+        if(getMedia() >= 7){
+            return "Aprovado";
+        }
+
+            return "Desaprovado";
     }
 
     public String getNomeAluno() {
@@ -26,37 +44,5 @@ public class Aluno {
 
     public int getMatricula() {
         return matricula;
-    }
-
-    public int getNotaPrimeiroSemestre() {
-        return notaPrimeiroSemestre;
-    }
-
-    public int getNotaSegundoSemestre() {
-        return notaSegundoSemestre;
-    }
-
-    public int getNotaTerceiroSemestre() {
-        return notaTerceiroSemestre;
-    }
-
-    public int getNotaQuartoSemestre() {
-        return notaQuartoSemestre;
-    }
-
-    public void setNotaPrimeiroSemestre(int notaPrimeiroSemestre) {
-        this.notaPrimeiroSemestre = notaPrimeiroSemestre;
-    }
-
-    public void setNotaSegundoSemestre(int notaSegundoSemestre) {
-        this.notaSegundoSemestre = notaSegundoSemestre;
-    }
-
-    public void setNotaTerceiroSemestre(int notaTerceiroSemestre) {
-        this.notaTerceiroSemestre = notaTerceiroSemestre;
-    }
-
-    public void setNotaQuartoSemestre(int notaQuartoSemestre) {
-        this.notaQuartoSemestre = notaQuartoSemestre;
     }
 }
