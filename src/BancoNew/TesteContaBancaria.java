@@ -26,7 +26,7 @@ public class TesteContaBancaria {
     private static void visualizarConta(Scanner scan, Banco banco) {
         System.out.println("Insira o número da conta: ");
         Cliente cliente = banco.procuraCliente(scan.nextInt());
-        System.out.println("1 - Saldo; 2 - Saque; 3 - Depósito");
+        System.out.println("1 - Saldo; 2 - Saque; 3 - Depósito; 4 - Poupança");
         int vontade  = scan.nextInt();
         if(vontade == 1){
             System.out.println(cliente.getContaBancaria().getSaldo());
@@ -40,6 +40,13 @@ public class TesteContaBancaria {
             System.out.println("Insira quanto deseja depositar: ");
             cliente.getContaBancaria().depositar(scan.nextDouble());
         }
+        else if (vontade ==4){
+            System.out.println("Insira há quanto dias está rendendo: ");
+            System.out.println("Insira a taxa: ");
+            ContaBancaria.ContaEspecial.ContaPoupanca poupanca = new ContaBancaria.ContaEspecial.ContaPoupanca();
+            System.out.println(poupanca.getDiaRendimento(scan.nextInt(), scan.nextDouble()));
+
+        }
     }
 
     private static void criarNovaConta(Scanner scan, Banco banco) {
@@ -47,7 +54,7 @@ public class TesteContaBancaria {
         String nomecliente = scan.next();
         System.out.println("Insira o número da conta: ");
         int numero_conta = scan.nextInt();
-        banco.addcliente(new Cliente(nomecliente, numero_conta));
+        //banco.addcliente(new Cliente(nomecliente, numero_conta));
 
     }
 }
